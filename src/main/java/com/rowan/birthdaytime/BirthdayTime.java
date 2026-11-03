@@ -1,5 +1,11 @@
-package com.rowan.tempmodname;
+package com.rowan.birthdaytime;
 
+import com.rowan.birthdaytime.block.ModBlocks;
+import com.rowan.birthdaytime.components.ModDataComponents;
+import com.rowan.birthdaytime.item.ModItems;
+import com.rowan.birthdaytime.particle.ConfettiParticles;
+import com.rowan.birthdaytime.particle.ModParticles;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -23,10 +29,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(TempModName.MOD_ID)
-public class TempModName {
+@Mod(BirthdayTime.MOD_ID)
+public class BirthdayTime {
 
-    public static final String MOD_ID = "tempmodname";
+    public static final String MOD_ID = "birthdaytime";
 
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
@@ -34,20 +40,24 @@ public class TempModName {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("tempmodname", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.tempmodname"))
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BIRTHDAY_TIME = CREATIVE_MODE_TABS.register("birthdaytime", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.birthdaytime"))
             .displayItems((parameters, output) -> {
 
             }).build());
 
 
-    public TempModName(IEventBus modEventBus, ModContainer modContainer) {
+    public BirthdayTime(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModParticles.register(modEventBus);
+        ModDataComponents.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -76,11 +86,15 @@ public class TempModName {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = TempModName.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = BirthdayTime.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
             LOGGER.info("HELLO FROM CLIENT SETUP");
+        }
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event){
+            event.registerSpriteSet(ModParticles.CONFETTI_PARTICLES.get(), ConfettiParticles.Provider::new);
         }
     }
 }

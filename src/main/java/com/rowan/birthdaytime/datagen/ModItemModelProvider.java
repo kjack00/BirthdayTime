@@ -1,18 +1,23 @@
-package com.rowan.tempmodname.datagen;
+package com.rowan.birthdaytime.datagen;
 
 
-import com.rowan.tempmodname.TempModName;
+import com.rowan.birthdaytime.BirthdayTime;
+import com.rowan.birthdaytime.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, TempModName.MOD_ID, existingFileHelper);
+        super(output, BirthdayTime.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
         //basicItem(ModItems.ITEM.get());
+
+        basicItem(ModItems.PARTY_POPPER.get());
+        //basicItem(ModItems.CONFETTI_CANNON.get());
+
     }
 }

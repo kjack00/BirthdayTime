@@ -1,6 +1,6 @@
-package com.rowan.tempmodname.datagen;
+package com.rowan.birthdaytime.datagen;
 
-import com.rowan.tempmodname.TempModName;
+import com.rowan.birthdaytime.BirthdayTime;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = TempModName.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = BirthdayTime.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent

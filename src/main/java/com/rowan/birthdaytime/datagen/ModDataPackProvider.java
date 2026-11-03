@@ -1,7 +1,7 @@
-package com.rowan.tempmodname.datagen;
+package com.rowan.birthdaytime.datagen;
 
 
-import com.rowan.tempmodname.TempModName;
+import com.rowan.birthdaytime.BirthdayTime;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.PackOutput;
@@ -16,6 +16,6 @@ public class ModDataPackProvider extends DatapackBuiltinEntriesProvider {
             ;
 
     public ModDataPackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Set.of(TempModName.MOD_ID));
+        super(output, registries, BUILDER, Set.of(BirthdayTime.MOD_ID));
     }
 }

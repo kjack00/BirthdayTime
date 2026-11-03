@@ -1,7 +1,7 @@
-package com.rowan.tempmodname.block;
+package com.rowan.birthdaytime.block;
 
-import com.rowan.tempmodname.TempModName;
-import com.rowan.tempmodname.item.ModItems;
+import com.rowan.birthdaytime.BirthdayTime;
+import com.rowan.birthdaytime.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
-            DeferredRegister.createBlocks(TempModName.MOD_ID);
+            DeferredRegister.createBlocks(BirthdayTime.MOD_ID);
 
     //public static final  DeferredBlock<Block> BLOCK_NAME = registerBlock("block_name",
     //        () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));

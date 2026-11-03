@@ -1,7 +1,7 @@
-package com.rowan.tempmodname.datagen;
+package com.rowan.birthdaytime.datagen;
 
 
-import com.rowan.tempmodname.block.ModBlocks;
+import com.rowan.birthdaytime.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;

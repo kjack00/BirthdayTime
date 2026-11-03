@@ -1,7 +1,7 @@
-package com.rowan.tempmodname.datagen;
+package com.rowan.birthdaytime.datagen;
 
 
-import com.rowan.tempmodname.TempModName;
+import com.rowan.birthdaytime.BirthdayTime;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, TempModName.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, BirthdayTime.MOD_ID, existingFileHelper);
     }
 
     @Override
