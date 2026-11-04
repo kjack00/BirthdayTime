@@ -1,0 +1,24 @@
+{
+  "pop_one": {
+    "subtitle": "sounds.birthdaytime.pop_one",
+    "sounds": [
+      "birthdaytime:pop_one"
+    ]
+  },  "pop_two": {
+  "subtitle": "sounds.birthdaytime.pop_two",
+  "sounds": [
+    "birthdaytime:pop_two"
+  ]
+},  "pop_three": {
+  "subtitle": "sounds.birthdaytime.pop_three",
+  "sounds": [
+    "birthdaytime:pop_three"
+  ]
+},
+  "yay": {
+    "subtitle": "sounds.birthdaytime.yay",
+    "sounds": [
+      "birthdaytime:yay"
+    ]
+  }
+}

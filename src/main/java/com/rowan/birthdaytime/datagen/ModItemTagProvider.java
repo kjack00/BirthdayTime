@@ -26,5 +26,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.CROSSBOW_ENCHANTABLE)
                 .add(ModItems.CONFETTI_CANNON.get());
 
+
+
     }
 }

@@ -5,6 +5,7 @@ import com.rowan.birthdaytime.components.ModDataComponents;
 import com.rowan.birthdaytime.item.ModItems;
 import com.rowan.birthdaytime.particle.ConfettiParticles;
 import com.rowan.birthdaytime.particle.ModParticles;
+import com.rowan.birthdaytime.sound.ModSounds;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
@@ -58,6 +59,7 @@ public class BirthdayTime {
         ModItems.register(modEventBus);
         ModParticles.register(modEventBus);
         ModDataComponents.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
