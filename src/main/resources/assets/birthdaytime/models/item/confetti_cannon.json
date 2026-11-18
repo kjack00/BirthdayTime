@@ -4,6 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "birthdaytime:item/confetti_cannon",
+		"1": "birthdaytime:item/confetti_cannon",
 		"particle": "birthdaytime:particles/confetti_particles"
 	},
 	"elements": [

@@ -1,12 +1,18 @@
 package com.rowan.birthdaytime;
 
 import com.rowan.birthdaytime.block.ModBlocks;
+import com.rowan.birthdaytime.client.ColorHandlers;
 import com.rowan.birthdaytime.components.ModDataComponents;
 import com.rowan.birthdaytime.item.ModItems;
 import com.rowan.birthdaytime.particle.ConfettiParticles;
 import com.rowan.birthdaytime.particle.ModParticles;
+import com.rowan.birthdaytime.recipies.ModRecipies;
 import com.rowan.birthdaytime.sound.ModSounds;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -25,9 +31,11 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static com.rowan.birthdaytime.item.custom.PresentItem.setPresentColor;
+
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(BirthdayTime.MOD_ID)
@@ -60,6 +68,8 @@ public class BirthdayTime {
         ModParticles.register(modEventBus);
         ModDataComponents.register(modEventBus);
         ModSounds.register(modEventBus);
+        modEventBus.addListener(ColorHandlers::registerItemColor);
+        ModRecipies.SERIALIZERS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -77,6 +87,15 @@ public class BirthdayTime {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 
+        }
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
+            for (DyeColor color : DyeColor.values()){
+                for (DyeColor color1 : DyeColor.values()) {
+                    ItemStack itemStack = new ItemStack((ItemLike) ModItems.PRESENT);
+                    setPresentColor(itemStack, color.getTextColor(), color1.getTextColor());
+                    event.accept(itemStack);
+                }
+            }
         }
     }
 

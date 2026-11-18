@@ -18,6 +18,14 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> AMMO =
             register("ammo", integerBuilder -> integerBuilder.persistent(Codec.INT));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> WRAPPED =
+            register("wrapped", booleanBuilder -> booleanBuilder.persistent(Codec.BOOL));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> BASECOLOR =
+            register("basecolor", integerBuilder -> integerBuilder.persistent(Codec.INT));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> RIBBONCOLOR =
+            register("ribboncolor", integerBuilder -> integerBuilder.persistent(Codec.INT));
+
 
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator){
         return DATA_COMPONENT_TYPES.register(name, ()-> builderOperator.apply(DataComponentType.builder()).build());

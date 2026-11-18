@@ -57,7 +57,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
-                .unlockedBy("has_string", has(Items.PAPER)).save(recipeOutput);
-
+                .unlockedBy("has_paper", has(Items.PAPER)).save(recipeOutput);
     }
 }

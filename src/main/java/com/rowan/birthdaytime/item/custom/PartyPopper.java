@@ -35,7 +35,6 @@ public class PartyPopper extends Item {
         }else if(randInt <= 1000/4) {
             level.playSound(null, new BlockPos((int) player.position().x, (int) player.position().y, (int) player.position().z) , ModSounds.YAY.get(), SoundSource.BLOCKS);
         }
-        level.playSound(null, new BlockPos((int) player.position().x, (int) player.position().y, (int) player.position().z) , ModSounds.YAY.get(), SoundSource.BLOCKS);
 
         Vec3 look = player.getLookAngle();
         Vec3 velocity = look.multiply(3,3,3);
